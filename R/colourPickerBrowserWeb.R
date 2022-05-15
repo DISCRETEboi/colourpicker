@@ -24,7 +24,12 @@ library(miniUI)
 #            span(id = "author", "By",
 #                 a(href = "https://deanattali.com", "Dean Attali")))
 #     ),
-
+    div(
+      actionButton("cancel", "Cancel", width = '80px'),
+      actionButton("done", "Done", width = '80px',
+                   style = "color:white; background-color:#005090; float:right")
+    ),
+    hr(),
     # Header section - shows the selected colours
     div(
       id = "header-section",
