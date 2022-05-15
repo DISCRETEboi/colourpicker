@@ -70,7 +70,7 @@ library(miniUI)
             id = "anycolarea",
             br(),
             colourpicker::colourInput(
-              "anyColInput", "Select any colour", showColour = "both",
+              "anyColInput", "Click Box to View Colour Palette", showColour = "both",
               value = "white", allowTransparent = TRUE)
           )
 #        )
