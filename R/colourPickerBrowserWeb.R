@@ -57,7 +57,7 @@ library(miniUI)
       actionLink("showShortcuts", "Show keyboard shortcuts")
     ),
 
-    tabsetPanel(
+    navbarPage("Colour Picker Menu",
 
       # Tab 1 - choose any colour
       tabPanel(
