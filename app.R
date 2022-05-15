@@ -26,7 +26,7 @@ library(miniUI)
 #     ),
     div(style = "background-color:#E6E6E6; padding:10px",
       actionButton("cancel", "Cancel", width = '80px'),
-      span(strong("Colour Picker"), style = "position:absolute; left:50%; transform:translateX(-50%); font-size:18px",
+      span(strong("Colour Picker"), style = "position:absolute; left:50%; transform:translateX(-50%); font-size:14px",
            span(id = "author", "By",
                 a(href = "https://deanattali.com", "Dean Attali"))),
       actionButton("done", "Done", width = '80px',
