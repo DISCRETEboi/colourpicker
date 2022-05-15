@@ -24,12 +24,14 @@ library(miniUI)
 #            span(id = "author", "By",
 #                 a(href = "https://deanattali.com", "Dean Attali")))
 #     ),
-    div(
+    div(style = "background-color:#E6E6E6; padding:10px",
       actionButton("cancel", "Cancel", width = '80px'),
+      span(strong("Colour Picker"), style = "position:absolute; left:50%; transform:translateX(-50%); font-size:18px",
+           span(id = "author", "By",
+                a(href = "https://deanattali.com", "Dean Attali"))),
       actionButton("done", "Done", width = '80px',
                    style = "color:white; background-color:#005090; float:right")
     ),
-    hr(),
     # Header section - shows the selected colours
     div(
       id = "header-section",
