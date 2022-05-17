@@ -9,7 +9,7 @@ library(miniUI)
 
   shiny::addResourcePath("cpg", system.file("gadgets", "colourpicker", package = "colourpicker"))
 
-  ui <- fluidPage(
+  ui <- miniPage(
     shinyjs::useShinyjs(),
     shinyjs::extendShinyjs(
       script = file.path("cpg", "js", "shinyjs-funcs.js"),
@@ -18,20 +18,22 @@ library(miniUI)
     tags$head(
       tags$link(rel="stylesheet", href = file.path("cpg", "css", "app.css")),
     ),
-#
-#     gadgetTitleBar(
-#       span(strong("Colour Picker"),
-#            span(id = "author", "By",
-#                 a(href = "https://deanattali.com", "Dean Attali")))
-#     ),
-    div(style = "background-color:#E6E6E6; padding:10px",
-      actionButton("cancel", "Cancel", width = '80px'),
-      span(strong("Colour Picker"), style = "position:absolute; left:50%; transform:translateX(-50%); font-size:14px",
+
+    gadgetTitleBar(
+      span(strong("Colour Picker"),
            span(id = "author", "By",
-                a(href = "https://deanattali.com", "Dean Attali"))),
-      actionButton("done", "Done", width = '80px',
-                   style = "color:white; background-color:#005090; float:right")
+                a(href = "https://deanattali.com", "Dean Attali")))
     ),
+    
+    # div(style = "background-color:#E6E6E6; padding:10px",
+    #   actionButton("cancel", "Cancel", width = '80px'),
+    #   span(strong("Colour Picker"), style = "position:absolute; left:50%; transform:translateX(-50%); font-size:14px",
+    #        span(id = "author", "By",
+    #             a(href = "https://deanattali.com", "Dean Attali"))),
+    #   actionButton("done", "Done", width = '80px',
+    #                style = "color:white; background-color:#005090; float:right")
+    # ),
+    
     # Header section - shows the selected colours
     div(
       id = "header-section",
@@ -59,28 +61,28 @@ library(miniUI)
       actionLink("showShortcuts", "Show keyboard shortcuts")
     ),
 
-    tabsetPanel(
+    miniTabstripPanel(
 
       # Tab 1 - choose any colour
-      tabPanel(
+      miniTabPanel(
         "Any colour",
         icon = icon("globe"),
-#        miniContentPanel(
+        miniContentPanel(
           div(
             id = "anycolarea",
             br(),
-            colourpicker::colourInput(
+            colourInput(
               "anyColInput", "Click Box to View Colour Palette", showColour = "both",
               value = "white", allowTransparent = TRUE)
           )
-#        )
+        )
       ),
 
       # Tab 2 - choose an R colour similar to a colour you choose
-      tabPanel(
+      miniTabPanel(
         "Find R colour",
         icon = icon("search"),
-#        miniContentPanel(
+        miniContentPanel(
           fluidRow(
             column(
               6,
@@ -99,21 +101,21 @@ library(miniUI)
           br(),
           strong("Click a colour to select it"),
           uiOutput("rclosecolsSection")
-#        )
+        )
       ),
 
       # Tab 3 - choose any R colour
-      tabPanel(
+      miniTabPanel(
         "All R colours",
         icon = icon("paint-brush"),
-#        miniContentPanel(
+        miniContentPanel(
           strong("Click a colour to select it"),
           br(),
           img(id = "allcols-spinner",
               src = file.path("cpg", "img", "ajax-loader.gif")
           ),
           uiOutput("allColsSection")
-#        )
+        )
       )
     )
   )
